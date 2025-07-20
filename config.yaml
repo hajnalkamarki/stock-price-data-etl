@@ -1,0 +1,20 @@
+yahoo_stock_price_etl:
+  common:
+    input_date_format: "%Y-%m-%d"
+    output_format: "csv"
+    file_path: ./data/yahoo_stock_prices/
+
+  extractor:
+    tickers:
+      - AAPL
+      - MSFT
+      - TSLA
+      - GOOG
+      - AMZN
+    start_date: 2020-01-01
+    end_date: 2023-12-31
+
+  transformer:
+    roll_avg_days: 30
+    ema_span: 14
+    
